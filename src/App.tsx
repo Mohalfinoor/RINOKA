@@ -199,7 +199,7 @@ export default function App() {
         {/* Absolute Background Generated Architectural Reference */}
         <div className="absolute inset-0">
           <img
-            src="/src/assets/images/rinoka_hero_1779464238876.png"
+            src="/src/assets/images/rinoka_hero_new_1779473426890.png"
             alt="RINOKA Summarecon Mutiara Makassar Hero"
             className="w-full h-full object-cover opacity-35 filter brightness-95 scale-105"
             referrerPolicy="no-referrer"
@@ -590,7 +590,7 @@ export default function App() {
       <section className="bg-[#1A2E35] text-white py-24 text-center select-none relative overflow-hidden border-t border-[#E0DBCF]">
         <div className="absolute inset-0 opacity-10">
           <img
-            src="/src/assets/images/rinoka_hero_1779464238876.png"
+            src="/src/assets/images/rinoka_hero_new_1779473426890.png"
             alt="Interior Footer Decor Outline"
             className="w-full h-full object-cover scale-110"
             referrerPolicy="no-referrer"

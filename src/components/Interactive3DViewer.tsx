@@ -18,7 +18,7 @@ export default function Interactive3DViewer() {
   // Map units to direct visual references generated for this project
   const getUnitImage = (unitId: string) => {
     if (unitId === "lyon") {
-      return "/src/assets/images/rinoka_hero_1779464238876.png";
+      return "/src/assets/images/rinoka_hero_new_1779473426890.png";
     }
     return "/src/assets/images/rinoka_interior_1779464256215.png";
   };
