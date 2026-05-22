@@ -1,0 +1,681 @@
+import { useState } from "react";
+import { 
+  Building2, 
+  Sparkles, 
+  Layers, 
+  MapPin, 
+  CheckCircle2, 
+  Leaf, 
+  ShieldCheck, 
+  Tv, 
+  Instagram, 
+  ChevronDown, 
+  ArrowRight, 
+  Phone, 
+  Map, 
+  FileText,
+  Star,
+  Users,
+  Menu,
+  X,
+  Smartphone,
+  Maximize
+} from "lucide-react";
+import Interactive3DViewer from "./components/Interactive3DViewer";
+import BookingSimulator from "./components/BookingSimulator";
+import AIAssistant from "./components/AIAssistant";
+import { RinokaLogoIcon, RinokaLogoBrand } from "./components/RinokaLogo";
+import { AMENITIES_DATA, RINOKA_UNITS } from "./data";
+
+export default function App() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setFaqOpenIndex(faqOpenIndex === index ? null : index);
+  };
+
+  const FAQS = [
+    {
+      q: "Siapa developer di balik klaster RINOKA?",
+      a: "Klaster RINOKA dikembangkan secara Joint Venture (Kemitraan Strategis) oleh Summarecon Makassar dan Sumitomo Forestry Indonesia. Kolaborasi ini menyatukan kehandalan sistem infrastruktur perkotaan Summarecon dengan teknologi wooden structure presisi tahan gempa khas Jepang."
+    },
+    {
+      q: "Apa saja tipe unit yang dipasarkan di RINOKA?",
+      a: "Saat ini dipasarkan 2 tipe unit utama bergaya arsitektur Klasik Prancis adaptif dengan pilihan 3 hingga 5 kamar tidur: Tipe Lyon (Lebar 7 x 14 m, LB 82 m², 3 Kamar Tidur luas) dan Tipe Paris (Lebar 9 x 14 m, LB 117 m², 4-5 Kamar Tidur adaptif, Double Carport)."
+    },
+    {
+      q: "Apakah utility di RINOKA menggunakan kabel udara?",
+      a: "Tidak. Sesuai dengan standar premium Summarecon Mutiara Makassar, seluruh utilitas termasuk kabel listrik, serat optik internet, sirkulasi drainase, dan instalasi air bersih ditanam secara rapi di bawah tanah (Underground Utilities)."
+    },
+    {
+      q: "Bagaimana cara melakukan survey lokasi atau pemesanan?",
+      a: "Anda dapat berkonsultasi langsung dengan Sari (Asisten virtual di pojok kanan bawah), atau menghitung sendiri estimasi angsuran di bagian Kalkulator Pemesanan kami. Klik tombol 'Hubungi Admin via WhatsApp' untuk menjadwalkan kunjungan mendampingi Anda langsung ke show unit."
+    },
+    {
+      q: "Apakah ada promo khusus bulan ini?",
+      a: "Ya! Kami sedang membuka penawaran terbatas berupa Free AC di seluruh kamar tidur serta penawaran sistem KPR ekspres dengan bunga instan bekerjasama dengan bank-bank nasional terkemuka."
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-editorial-bg text-editorial-text font-sans selection:bg-editorial-border selection:text-editorial-accent scroll-smooth">
+      
+      {/* 1. STICKY PREMIUM HEADER */}
+      <header className="sticky top-0 z-40 bg-editorial-bg/95 backdrop-blur-md border-b border-editorial-border transition-all">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            
+            {/* Direct branding Logo representing Summarecon partner */}
+            <a href="#" className="flex items-center gap-3 group">
+              <div className="w-11 h-11 bg-editorial-accent rounded-none flex items-center justify-center text-editorial-gold border border-editorial-border transition-all group-hover:border-editorial-gold">
+                <RinokaLogoIcon className="w-7 h-6 text-editorial-gold" />
+              </div>
+              <div>
+                <span className="font-serif font-medium text-editorial-accent text-lg tracking-[0.08em] block leading-none">
+                  RINOKA
+                </span>
+                <span className="text-[7.5px] uppercase tracking-[0.18em] text-editorial-secondary font-bold block mt-1">
+                  by Summarecon Mutiara
+                </span>
+              </div>
+            </a>
+
+            {/* Desktop Navigation links */}
+            <nav className="hidden md:flex items-center gap-8">
+              <a href="#jv-story" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
+                Kemitraan
+              </a>
+              <a href="#amenities" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
+                Fasilitas
+              </a>
+              <a href="#3d-viewer" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
+                Tur Unit 3D
+              </a>
+              <a href="#booking-simulator" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
+                Kalkulator Sim
+              </a>
+              <a href="#faq" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
+                FAQ
+              </a>
+            </nav>
+
+            {/* Direct WhatsApp Call Action Header widget */}
+            <div className="hidden md:flex items-center gap-3.5">
+              <a
+                href="https://www.instagram.com/rinokamakassar?igsh=NmIwM3Vqa2dnbXUy&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2.5 text-[#8A8471] hover:text-[#1A2E35] hover:bg-[#E0DBCF]/30 rounded-none transition-colors"
+                title="Kunjungi Instagram RINOKA Makassar"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/628114178998?text=Halo%20Admin%20RINOKA,%20saya%20tertarik%20mengenai%20brosur%20terbaru%20dan%20pricelist%20Summarecon%20Mutiara%20Makassar."
+                target="_blank"
+                rel="noreferrer"
+                className="bg-[#1B4541] text-[#FAFAF5] border border-[#E4DFD5] px-5 py-3 rounded-none text-[10px] uppercase tracking-widest font-bold hover:bg-[#2A3331] transition-colors flex items-center gap-2"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#D5B277]" /> Konsultasi Admin
+              </a>
+            </div>
+
+            {/* Mobile Menu Trigger */}
+            <div className="md:hidden flex items-center gap-2">
+              <a
+                href="https://www.instagram.com/rinokamakassar?igsh=NmIwM3Vqa2dnbXUy&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="p-2 text-[#8A8471]"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-[#1A2E35]"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* Mobile menu panel */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-[#F7F5F0] border-b border-[#E0DBCF] px-4 py-4 space-y-3">
+            <a
+              href="#jv-story"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
+            >
+              Kolaborasi JV
+            </a>
+            <a
+              href="#amenities"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
+            >
+              Fasilitas
+            </a>
+            <a
+              href="#3d-viewer"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
+            >
+              Tour Unit 3D
+            </a>
+            <a
+              href="#booking-simulator"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
+            >
+              Simulasi Booking
+            </a>
+            <a
+              href="#faq"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
+            >
+              FAQ
+            </a>
+            <div className="pt-2 border-t border-[#E0DBCF] flex gap-3">
+              <a
+                href="https://wa.me/628114178998?text=Halo%20Admin%20RINOKA..."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full bg-[#1B4541] text-white py-3 rounded-none text-center text-[10px] uppercase tracking-widest font-bold"
+              >
+                Hubungi WhatsApp
+              </a>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* 2. MAJESTIC HERO BANNER WITH REAL RENDER */}
+      <section className="relative bg-[#1A2E35] border-b border-[#E0DBCF] overflow-hidden">
+        {/* Absolute Background Generated Architectural Reference */}
+        <div className="absolute inset-0">
+          <img
+            src="/src/assets/images/rinoka_hero_1779464238876.png"
+            alt="RINOKA Summarecon Mutiara Makassar Hero"
+            className="w-full h-full object-cover opacity-35 filter brightness-95 scale-105"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#1A2E35]/65 to-black/85"></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col justify-center min-h-[640px]">
+          <div className="max-w-3xl space-y-7">
+            
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-none text-[#D4AF37]">
+              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-none animate-pulse"></span>
+              <span className="text-[9px] font-bold tracking-[0.2em] uppercase">
+                Promo Eksklusif: Free AC Setiap Kamar Tidur
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-7xl font-serif text-white leading-tight tracking-tight">
+              RINOKA <br />
+              <span className="text-[#D4AF37] not-italic font-serif block mt-2 text-3xl md:text-4xl">Summarecon Mutiara Makassar</span>
+            </h1>
+
+            <p className="text-[#E0DBCF]/80 text-sm md:text-base max-w-2xl font-serif italic leading-relaxed font-light">
+              Karya masterpieces hunian bergaya <span className="text-white font-medium">Klasik Prancis Modern</span>. Hasil kolaborasi global Joint-Venture di tengah jantung Summarecon Mutiara Makassar yang asri, berteknologi presisi tinggi, dan ramah lingkungan.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a
+                href="#booking-simulator"
+                className="bg-[#D4AF37] hover:bg-[#C09F30] text-[#1A2E35] py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center border border-[#E0DBCF]"
+              >
+                Simulasi Booking Unit
+              </a>
+              <a
+                href="#3d-viewer"
+                className="bg-transparent hover:bg-white/5 text-white border border-white/20 py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center"
+              >
+                Lihat Model Rumah 3D
+              </a>
+            </div>
+
+            {/* Quick specifications icons summary */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/10 max-w-2xl">
+              <div>
+                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Harga Mulai</span>
+                <span className="text-white font-serif italic text-base">Rp 1.2 Milyar*</span>
+              </div>
+              <div>
+                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Tipe Tersedia</span>
+                <span className="text-white font-serif italic text-base">Lyon & Paris</span>
+              </div>
+              <div>
+                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Kemitraan JV</span>
+                <span className="text-white font-serif italic text-base">Sumitomo Forestry</span>
+              </div>
+              <div>
+                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Arsitektur</span>
+                <span className="text-white font-serif italic text-base">Prancis Modern</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 3. EXQUISITE JOINT VENTURE COOPERATION STORY */}
+      <section id="jv-story" className="py-24 bg-[#F7F5F0]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* LEFT: Text storytelling Block */}
+            <div className="lg:col-span-6 space-y-6">
+              <span className="text-[#8A8471] text-[10px] uppercase tracking-[0.25em] font-bold block mb-1">
+                Kemitraan Kelas Dunia
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif italic text-[#1A2E35] leading-tight tracking-tight">
+                Harmoni Sempurna Struktur Jepang & Desain Eropa Klasik
+              </h2>
+              <div className="w-20 h-[1px] bg-[#8A8471]"></div>
+              
+              <p className="text-editorial-secondary text-sm leading-relaxed font-serif italic">
+                Ya, benar sekali! <strong>RINOKA</strong> adalah klaster eksklusif hasil kemitraan strategis (Joint Venture) resmi antara developer legendaris nasional <strong>Summarecon Makassar</strong> dengan raksasa teknologi perkayuan dan konstruksi global asal Jepang, <strong>Sumitomo Forestry Indonesia</strong> (anak perusahaan dari Sumitomo Forestry Group Jepang yang didirikan sejak tahun 1691).
+              </p>
+              <p className="text-editorial-secondary text-sm leading-relaxed font-serif italic">
+                Kolaborasi ini menyatukan kehandalan prasarana kota mandiri Summarecon dengan standar keteknikan ketat khas Jepang. Menggunakan material tersertifikasi berkelanjutan yang ramah lingkungan dengan sistem presisi wooden engineering yang tahan gempa, memberikan kenyamanan microclimate alami yang sejuk sepanjang hari.
+              </p>
+
+              <div className="space-y-4 pt-2">
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                  <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
+                    <Sparkles className="w-5 h-5 text-editorial-accent" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Fasad Arsitektur Prancis</h4>
+                    <p className="text-xs text-editorial-secondary font-serif italic mt-1">Sentuhan kemewahan pilar anggun, atap slate abu-abu tinggi, dan ornamen French window yang estetik.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                  <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
+                    <Leaf className="w-5 h-5 text-editorial-accent" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Teknologi Struktur Jepang</h4>
+                    <p className="text-xs text-editorial-secondary font-serif italic mt-1">Mengandalkan structural integrity Sumitomo Forestry Group Jepang untuk hunian kokoh, tahan gempa, dan presisi tinggi.</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                  <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-5 h-5 text-editorial-accent" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Double Gate System</h4>
+                    <p className="text-xs text-editorial-secondary font-serif italic mt-1">Sistem keamanan ganda elektrik terintegrasi untuk menjamin rasa aman dan privasi mutlak bagi keluarga Anda.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT: Visual Collage with Interior render & Official Brand Monogram Card */}
+            <div className="lg:col-span-6 grid grid-cols-12 gap-4">
+              <div className="col-span-8 rounded-none overflow-hidden border border-editorial-border aspect-[4/3] relative">
+                <img
+                  src="/src/assets/images/rinoka_interior_1779464256215.png"
+                  alt="Rinoka Interior Showunit"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5 text-white">
+                  <span className="text-[9px] font-bold tracking-[0.2em] text-[#D5B277] block uppercase">Show Unit Tipe Paris</span>
+                  <p className="text-xs font-serif italic mt-1">Desain ruang santai lapang bernuansa Eropa fungsional.</p>
+                </div>
+              </div>
+
+              <RinokaLogoBrand className="col-span-4 rounded-none aspect-[3/4] mt-12" />
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 4. PREMIUM AMENITIES RESORT BENTO GRID */}
+      <section id="amenities" className="py-24 bg-[#1A2E35] text-white relative overflow-hidden border-y border-[#E0DBCF]">
+        
+        {/* Background Visual render of tranquil Zen pool area */}
+        <div className="absolute inset-0 opacity-15">
+          <img
+            src="/src/assets/images/rinoka_amenities_1779464276424.png"
+            alt="Zen Amenities Background"
+            className="w-full h-full object-cover scale-105"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="max-w-3xl mb-16">
+            <span className="text-[#D4AF37] text-[10px] uppercase tracking-[0.25em] font-bold block mb-3">
+              PREMIUM LUXURY FACILITIES
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif italic text-white mb-4">
+              Fasilitas Eksklusif Penunjang Gaya Hidup Terbaik
+            </h2>
+            <p className="text-[#E0DBCF]/80 text-sm leading-relaxed max-w-2xl font-serif italic">
+              Summarecon Mutiara Makassar menghadirkan ekosistem kawasan hijau. Dirancang khusus untuk memanjakan istirahat akhir pekan Anda bersama keluarga tanpa perlu keluar dari kawasan klaster.
+            </p>
+          </div>
+
+          {/* Amenities grid layout cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {AMENITIES_DATA.map((amenity, i) => (
+              <div
+                key={i}
+                className="bg-white p-7 rounded-none border border-[#E0DBCF] hover:border-[#D4AF37] transition-all duration-500 group"
+              >
+                <div className="w-10 h-10 rounded-none bg-[#F7F5F0] border border-[#E0DBCF] flex items-center justify-center text-[#1A2E35] mb-5 group-hover:bg-[#1A2E35] group-hover:text-white transition-all">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+                <h4 className="font-serif italic text-[#1A2E35] text-base mb-2 group-hover:text-[#D4AF37] transition-colors">
+                  {amenity.title}
+                </h4>
+                <p className="text-[#5A5440] text-xs leading-relaxed font-serif italic">
+                  {amenity.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Big contextual box highlighting Sumitomo garden features */}
+          <div className="mt-12 bg-[#0E1A1E] p-8 md:p-10 rounded-none border border-[#E0DBCF] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2">
+              <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-[9px] font-bold text-[#D4AF37] uppercase tracking-[0.2em] block w-fit">
+                Sumitomo Ecology Concept
+              </span>
+              <h3 className="text-lg md:text-2xl font-serif italic text-white">Eco Green Zen Yard Kolaborasi Jepang</h3>
+              <p className="text-[#E0DBCF]/75 text-xs max-w-2xl leading-relaxed italic font-serif">
+                Menghadirkan harmoni alam asri melalui pemilihan rindang pepohonan penyerap karbon tinggi khas Jepang yang dirancang presisi sesuai kondisi iklim pesisir kota Makassar.
+              </p>
+            </div>
+            <a
+              href="#3d-viewer"
+              className="bg-[#D4AF37] hover:bg-[#C09F30] px-6 py-4 rounded-none text-xs font-bold uppercase tracking-widest text-[#1A2E35] transition-colors shrink-0 flex items-center gap-2"
+            >
+              Uji Tour Kawasan <ArrowRight className="w-4 h-4 text-[#1A2E35]" />
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. INTERACTIVE 3D TOUR SECION */}
+      <Interactive3DViewer />
+
+      {/* 6. BOOKING SIMULATOR / KPR CALCULATOR SECTION */}
+      <BookingSimulator />
+
+      {/* 7. SUMMARECON MUTIARA AREA CONTEXT */}
+      <section className="py-24 bg-[#F7F5F0] border-t border-[#E0DBCF]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left side parameters list */}
+            <div className="lg:col-span-5 space-y-6">
+              <span className="text-[#8A8471] text-[10px] uppercase tracking-[0.2em] font-bold block mb-1">
+                Lokasi & Konektivitas
+              </span>
+              <h2 className="text-3xl md:text-5xl font-serif italic text-[#1A2E35] mb-4">
+                Pusat Pertumbuhan Baru di Makassar Timur
+              </h2>
+              <p className="text-[#5A5440] font-serif italic text-sm">
+                Berlokasi di <strong>Summarecon Mutiara Makassar</strong>, kawasan kota mandiri masa depan seluas ratusan hektar di koridor pertumbuhan Makassar Timur yang terus berkembang pesat.
+              </p>
+
+              <div className="space-y-3 font-sans text-xs text-[#2A3331]">
+                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
+                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#837E70]" /> SD Islam Al Azhar
+                  </span>
+                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                </div>
+
+                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
+                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#837E70]" /> Pasar Mandiri
+                  </span>
+                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                </div>
+
+                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
+                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#837E70]" /> Upcoming Summarecon Mall Makassar
+                  </span>
+                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                </div>
+
+                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
+                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#837E70]" /> Akses Gerbang Tol Ir. Sutami
+                  </span>
+                  <span className="font-bold text-[#1B4541] text-right font-mono">Hanya 5 Menit (3 km)</span>
+                </div>
+
+                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
+                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-[#837E70]" /> Bandara Sultan Hasanuddin
+                  </span>
+                  <span className="font-bold text-[#1B4541] text-right font-mono">Hanya 10 Menit</span>
+                </div>
+              </div>
+
+              {/* Instagram link preview request banner */}
+              <div className="bg-white p-6 rounded-none border border-[#E0DBCF] space-y-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E35] flex items-center gap-2">
+                  <Instagram className="w-4 h-4 text-[#8A8471]" /> Ikuti Akun Instagram Resmi Kami
+                </p>
+                <p className="text-xs text-[#5A5440] font-serif italic leading-relaxed">
+                  Dapatkan info diskon peluncuran perdana reguler, vlog show unit, perkembangan aspal jalan, dan dokumentasi terkini langsung dari lapangan Makassar.
+                </p>
+                <a
+                  href="https://www.instagram.com/rinokamakassar?igsh=NmIwM3Vqa2dnbXUy&utm_source=qr"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#1A2E35] hover:bg-[#2D2D2D] text-white font-bold text-[10px] uppercase tracking-widest py-3 px-5 rounded-none border border-[#E0DBCF] transition-all cursor-pointer"
+                >
+                  Buka Instagram @rinokamakassar
+                </a>
+              </div>
+            </div>
+
+            {/* Right side illustrative Maps/Photos block */}
+            <div className="lg:col-span-7 rounded-none overflow-hidden border border-[#E0DBCF] shadow-md bg-white p-5 space-y-4">
+              <div className="h-64 bg-gray-200 rounded-none relative overflow-hidden">
+                {/* Visual generated map mockup */}
+                <img
+                  src="/src/assets/images/rinoka_amenities_1779464276424.png"
+                  alt="Summarecon Mutiara Makassar map context"
+                  className="w-full h-full object-cover grayscale opacity-80 border border-[#E0DBCF]"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <span className="text-[9px] uppercase font-bold tracking-widest text-[#D4AF37] block">MAP DIRECTION</span>
+                      <p className="text-xs font-serif italic">Summarecon Mutiara Makassar Entrance</p>
+                    </div>
+                    <span className="px-3 py-1.5 bg-[#1A2E35] rounded-none border border-white/10 text-[9px] uppercase tracking-wider font-bold">
+                      Buka Peta Asli
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="p-4 bg-[#F7F5F0] border border-[#E0DBCF] rounded-none">
+                  <span className="text-lg font-serif italic font-bold text-[#1A2E35] block">Near Tol</span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-[#8A8471] mt-1">Akses langsung lingkar luar</p>
+                </div>
+                <div className="p-4 bg-[#F7F5F0] border border-[#E0DBCF] rounded-none">
+                  <span className="text-lg font-serif italic font-bold text-[#1A2E35] block">High Growth</span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-[#8A8471] mt-1">Nilai investasi naik up to 12% p.a</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 8. HELPFUL FAQ ACCORDION PANEL */}
+      <section id="faq" className="py-24 bg-white border-y border-[#E0DBCF]">
+        <div className="max-w-4xl mx-auto px-4">
+          
+          <div className="text-center mb-16">
+            <span className="text-[#8A8471] text-[9px] uppercase tracking-[0.25em] font-bold block mb-3">
+              Frequently Asked Questions
+            </span>
+            <h2 className="text-3xl md:text-5xl font-serif italic text-[#1A2E35]">
+              Pertanyaan yang Sering Diajukan (FAQ)
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {FAQS.map((faq, i) => (
+              <div
+                key={i}
+                className="bg-white border border-[#E0DBCF] rounded-none overflow-hidden text-xs"
+              >
+                <button
+                  onClick={() => toggleFaq(i)}
+                  className="w-full text-left p-4 md:p-6 flex justify-between items-center bg-white hover:bg-[#F7F5F0]/50 transition-colors font-serif italic text-[#1A2E35] text-sm md:text-base leading-snug"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-[#8A8471] transition-transform duration-300 ${
+                      faqOpenIndex === i ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                
+                {faqOpenIndex === i && (
+                  <div className="p-4 md:p-6 border-t border-[#E0DBCF] bg-[#F7F5F0]/30 text-[#5A5440] leading-relaxed font-sans text-xs">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* 9. VIP CONSULTATION CTA HERO FOOTER BAR */}
+      <section className="bg-[#1A2E35] text-white py-24 text-center select-none relative overflow-hidden border-t border-[#E0DBCF]">
+        <div className="absolute inset-0 opacity-10">
+          <img
+            src="/src/assets/images/rinoka_hero_1779464238876.png"
+            alt="Interior Footer Decor Outline"
+            className="w-full h-full object-cover scale-110"
+            referrerPolicy="no-referrer"
+          />
+        </div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 space-y-6">
+          <span className="text-[#D4AF37] text-[10px] uppercase tracking-[0.25em] font-bold block">
+            LIMITED RELEASE OFFER
+          </span>
+          <h2 className="text-3xl md:text-5xl font-serif italic text-white leading-tight">
+            Miliki Keanggunan Hidup di Klaster Rinoka Makassar
+          </h2>
+          <p className="text-[#E0DBCF]/80 text-sm max-w-2xl mx-auto leading-relaxed font-serif italic">
+            Dapatkan Free AC untuk setiap kamar tidur Anda hari ini. Segera buat janji temu konsultasi dengan tim representatif Summarecon Makassar sebelum unit terfavorit habis.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 pt-4">
+            <a
+              href="https://wa.me/628114178998?text=Halo%20Admin%20RINOKA,%20saya%20tertarik%20mengenai%20brosur%20terbaru%20dan%20pricelist%20Summarecon%20Mutiara%20Makassar."
+              target="_blank"
+              rel="noreferrer"
+              className="bg-[#D5B277] hover:bg-[#C19F65] px-8 py-4 rounded-none font-bold text-xs tracking-widest uppercase text-[#1B4541] border border-[#E4DFD5] transition-colors inline-flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-[#1B4541]" /> Live Chat Admin WhatsApp
+            </a>
+            <a
+              href="#booking-simulator"
+              className="bg-transparent hover:bg-white/10 px-8 py-4 rounded-none font-bold text-xs tracking-widest uppercase text-white border border-white/20 transition-colors inline-block"
+            >
+              Hitung Cicilan Unit
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. REAL BASE FOOTER OUTLINES */}
+      <footer className="bg-[#0A1211] text-editorial-secondary py-16 text-xs border-t border-editorial-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-12 gap-8">
+          
+          <div className="md:col-span-5 space-y-5">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-editorial-accent rounded-none flex items-center justify-center border border-editorial-border/20 text-editorial-gold">
+                <RinokaLogoIcon className="w-6 h-5 text-editorial-gold" />
+              </div>
+              <div>
+                <span className="font-serif font-semibold text-white text-base tracking-widest block leading-none">RINOKA</span>
+                <span className="text-[7.2px] uppercase tracking-[0.18em] text-editorial-gold font-bold block mt-1">SUMMARECON & SUMITOMO FORESTRY</span>
+              </div>
+            </div>
+            <p className="text-[#FAFAF5]/70 leading-relaxed max-w-sm italic font-serif">
+              Cluster terbaru dengan mahakarya rancangan arsitektur Klasik Prancis Modern berpadu kehandalan presisi wooden system khas Sumitomo Forestry Jepang.
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://www.instagram.com/rinokamakassar?igsh=NmIwM3Vqa2dnbXUy&utm_source=qr"
+                target="_blank"
+                rel="noreferrer"
+                className="w-8 h-8 rounded-none bg-white/5 border border-white/15 flex items-center justify-center text-[#8A8471] hover:text-white transition-colors"
+                title="Instagram @rinokamakassar"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          <div className="md:col-span-4 space-y-4">
+            <span className="font-sans text-[#D5B277] uppercase text-[10px] tracking-[0.2em] font-bold block">INFORMASI PEMASARAN</span>
+            <address className="not-italic text-[#FAFAF5]/80 leading-relaxed space-y-2 font-mono">
+              <p>📍 Summarecon Mutiara Makassar, Kawasan Exit Tol Bandara KM.4, Makassar, Sulawesi Selatan, Indonesia.</p>
+              <p>📱 Telepon / WhatsApp: 0811-4178-998</p>
+              <p>🌐 Website Resmi: www.rinokamakassar.co.id</p>
+            </address>
+          </div>
+
+          <div className="md:col-span-3 space-y-4">
+            <span className="font-sans text-[#D4AF37] uppercase text-[10px] tracking-[0.2em] font-bold block">JAM SURVEY SHOW UNIT</span>
+            <ul className="text-[#E0DBCF]/80 space-y-2">
+              <li className="font-mono">Senin - Jumat: 09:00 - 17:00 WITA</li>
+              <li className="font-mono">Sabtu - Minggu: 09:00 - 18:00 WITA</li>
+              <li className="text-[#D4AF37] font-serif italic text-xs font-semibold mt-2">Diharapkan reservasi terlebih dahulu.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-white/5 text-center">
+          <p>© {new Date().getFullYear()} Rinoka Summarecon Mutiara Makassar. All rights reserved.</p>
+          <p className="mt-1 text-[#8A8471]/60">Seluruh foto rendering arsitektur di website ini bersumber dari asset rancangan klaster resmi untuk promosi.</p>
+        </div>
+      </footer>
+
+      {/* FLOATING VIRTUAL ASSISTANT (SARI AI CHAT CONSULTANT) */}
+      <AIAssistant />
+
+    </div>
+  );
+}

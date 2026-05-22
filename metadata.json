@@ -1,0 +1,6 @@
+{
+  "name": "Rinoka Summarecon Makassar",
+  "description": "Website properti eksklusif Klaster Rinoka by Summarecon Mutiara Makassar dengan detail unit, estimasi pemesanan, simulasi 3D interaktif, dan integrasi WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
