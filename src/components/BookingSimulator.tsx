@@ -198,8 +198,8 @@ Mohon info ketersediaan unit, jadwal survey lokasi, dan brosur terbaru. Terima k
                       }}
                       className={`px-3 py-2.5 text-[10px] uppercase font-bold tracking-widest rounded-none border ${
                         paymentMethod === method
-                          ? "bg-[#1A2E35] border-[#1A2E35] text-white"
-                          : "bg-white border-[#E0DBCF] text-[#8A8471] hover:bg-[#F7F5F0]"
+                          ? "bg-editorial-accent border-editorial-accent text-white"
+                          : "bg-white border-editorial-border text-editorial-secondary hover:bg-editorial-bg"
                       }`}
                     >
                       {method}
@@ -209,10 +209,10 @@ Mohon info ketersediaan unit, jadwal survey lokasi, dan brosur terbaru. Terima k
 
                 {/* Direct Dynamic DP slide controls for KPR & Bertahap */}
                 {paymentMethod !== PaymentMethod.CASH && (
-                  <div className="mt-4 bg-[#F7F5F0] p-4 rounded-none border border-[#E0DBCF] space-y-3">
+                  <div className="mt-4 bg-editorial-bg p-4 rounded-none border border-editorial-border space-y-3">
                     <div className="flex justify-between items-center text-xs">
-                      <span className="text-[#5A5440] font-medium font-serif italic">Uang Muka (DP %):</span>
-                      <span className="font-serif italic font-bold text-[#1A2E35] text-sm">{dpPercent}% (Rp {downPayment.toLocaleString("id-ID")})</span>
+                      <span className="text-editorial-secondary font-medium font-serif italic">Uang Muka (DP %):</span>
+                      <span className="font-serif italic font-bold text-editorial-accent text-sm">{dpPercent}% (Rp {downPayment.toLocaleString("id-ID")})</span>
                     </div>
                     <input
                       type="range"
@@ -221,9 +221,9 @@ Mohon info ketersediaan unit, jadwal survey lokasi, dan brosur terbaru. Terima k
                       step={5}
                       value={dpPercent}
                       onChange={(e) => setDpPercent(Number(e.target.value))}
-                      className="w-full accent-[#1A2E35] h-1.5 bg-white/70 rounded-none cursor-pointer border border-[#E0DBCF]"
+                      className="w-full accent-editorial-accent h-1.5 bg-white/70 rounded-none cursor-pointer border border-editorial-border"
                     />
-                    <div className="flex justify-between text-[10px] text-[#8A8471] font-mono">
+                    <div className="flex justify-between text-[10px] text-editorial-secondary font-mono">
                       <span>Min DP {paymentMethod === PaymentMethod.BERTALU ? "20%" : "10%"}</span>
                       <span>Sisa Pembiayaan: Rp {loanAmount.toLocaleString("id-ID")}</span>
                     </div>
@@ -383,71 +383,84 @@ Mohon info ketersediaan unit, jadwal survey lokasi, dan brosur terbaru. Terima k
           </div>
 
           {/* RIGHT PANEL: Outputs & Booking Inquiry Form (Cols 5) */}
-          <div className="lg:col-span-5 flex flex-col justify-between bg-[#1A2E35] text-white rounded-none p-6 md:p-8 border border-[#E0DBCF] shadow-xl">
+          <div className="lg:col-span-5 flex flex-col justify-between bg-editorial-accent text-white rounded-none p-6 md:p-8 border border-editorial-border shadow-xl">
             
             <div className="space-y-6">
               
               <div className="border-b border-white/10 pb-4">
-                <span className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-[#D4AF37] uppercase bg-white/5 px-3 py-1.5 rounded-none border border-white/10">
+                <span className="inline-flex items-center gap-1.5 text-[9px] font-bold tracking-[0.2em] text-editorial-gold uppercase bg-white/5 px-3 py-1.5 rounded-none border border-white/10 shimmer-premium">
                   <Calculator className="w-3.5 h-3.5" /> Ringkasan Simulasi Anda
                 </span>
-                <p className="text-sm text-[#E0DBCF]/80 font-serif italic mt-3">RINOKA by Summarecon Mutiara Makassar</p>
+                <p className="text-sm text-editorial-bg/80 font-serif italic mt-3">RINOKA by Summarecon Mutiara Makassar</p>
               </div>
 
-              {/* Computations details breakdown */}
+              {/* Computations details breakdown with Premium highlights */}
               <div className="space-y-4 font-sans text-xs">
                 
                 <div className="flex justify-between items-center">
-                  <span className="text-[#E0DBCF]/80 uppercase tracking-widest text-[9px]">Unit Terpilih</span>
+                  <span className="text-editorial-border/80 uppercase tracking-widest text-[9px] font-sans">Unit Terpilih</span>
                   <span className="font-serif italic font-bold text-white text-base">{selectedUnit.name}</span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-[#E0DBCF]/80 uppercase tracking-widest text-[9px]">Harga Dasar Unit</span>
+                  <span className="text-editorial-border/80 uppercase tracking-widest text-[9px] font-sans">Harga Dasar Unit</span>
                   <span className="font-serif italic font-bold text-white text-base">Rp {selectedUnit.price.toLocaleString("id-ID")}</span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-[#E0DBCF]/80 uppercase tracking-widest text-[9px]">Total Upgrade Peningkatan</span>
+                  <span className="text-editorial-border/80 uppercase tracking-widest text-[9px] font-sans">Total Upgrade Peningkatan</span>
                   <span className="font-serif italic font-bold text-white text-base">Rp {upgradesTotal.toLocaleString("id-ID")}</span>
                 </div>
 
-                <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                  <span className="text-[#E0DBCF] font-bold text-[10px] uppercase tracking-wider">TOTAL HARGA RUPIAH</span>
-                  <span className="text-xl font-serif text-[#D4AF37] italic font-semibold">Rp {totalPrice.toLocaleString("id-ID")}</span>
+                {/* HIGHLIGHT: Total Price with a beautiful gold glowing frame */}
+                <div className="p-4 bg-white/5 border border-editorial-gold/30 rounded-none shimmer-premium glow-gold space-y-1">
+                  <div className="flex justify-between items-center">
+                    <span className="text-editorial-gold/90 font-bold text-[9px] uppercase tracking-wider font-sans">TOTAL HARGA PENUTUPAN</span>
+                    <span className="text-xs bg-editorial-gold text-editorial-accent font-bold px-1.5 py-0.5 rounded-none text-[8.5px] uppercase tracking-widest font-sans">Pas</span>
+                  </div>
+                  <div className="flex justify-between items-center pt-1">
+                    <span className="text-2xl font-serif text-editorial-gold italic font-bold">
+                      Rp {totalPrice.toLocaleString("id-ID")}
+                    </span>
+                  </div>
                 </div>
 
                 <div className="flex justify-between items-center pt-4 border-t border-white/10">
-                  <span className="text-[#E0DBCF]/80 uppercase tracking-widest text-[9px]">Lembaga Pembiayaan</span>
+                  <span className="text-editorial-border/80 uppercase tracking-widest text-[9px] font-sans">Lembaga Pembiayaan</span>
                   <span className="font-serif italic text-white text-sm flex items-center gap-1.5">{paymentMethod}</span>
                 </div>
 
                 {paymentMethod !== PaymentMethod.CASH && (
-                  <div className="space-y-3 bg-black/20 p-5 rounded-none border border-white/5 mt-2">
+                  <div className="space-y-4 bg-black/25 p-5 rounded-none border border-editorial-gold/20 mt-2 glow-gold">
                     
                     <div className="flex justify-between items-center text-xs">
-                      <span className="text-[#E0DBCF]/75 font-serif italic">Uang Muka (DP {dpPercent}%)</span>
+                      <span className="text-editorial-border/75 font-serif italic">Uang Muka (DP {dpPercent}%)</span>
                       <span className="font-serif italic font-bold text-white">Rp {downPayment.toLocaleString("id-ID")}</span>
                     </div>
 
                     <div className="flex justify-between items-center text-xs">
-                      <span className="text-[#E0DBCF]/75 font-serif italic">Sisa Dibayarkan (Pokok Pinjaman)</span>
+                      <span className="text-editorial-border/75 font-serif italic">Sisa Dibayarkan (Pokok Pinjaman)</span>
                       <span className="font-serif italic font-bold text-white">Rp {loanAmount.toLocaleString("id-ID")}</span>
                     </div>
 
                     {paymentMethod === PaymentMethod.KPR && (
                       <div className="flex justify-between items-center text-xs">
-                        <span className="text-[#E0DBCF]/75 font-serif italic">Tenor & Suku Bunga</span>
+                        <span className="text-editorial-border/75 font-serif italic">Tenor & Suku Bunga</span>
                         <span className="font-serif italic font-bold text-white">{tenorYears} Thn / {interestRate}% p.a</span>
                       </div>
                     )}
 
-                    <div className="flex justify-between items-center pt-3 border-t border-white/10">
-                      <span className="text-[#E0DBCF]/85 font-bold text-[10px] uppercase tracking-wider">Estimasi Angsuran / Bln</span>
-                      <span className="font-serif text-[#D4AF37] text-2xl font-bold italic">
-                        Rp {Math.round(monthlyInstallment).toLocaleString("id-ID")}
-                        <span className="text-[10px] font-sans not-italic text-[#8A8471] font-light"> /bulan</span>
+                    {/* DYNAMIC FOCUS HIGHLIGHT: Highlight monthly installments in spectacular golden luxury color */}
+                    <div className="pt-3 border-t border-white/10 space-y-1">
+                      <span className="text-editorial-gold font-bold text-[10px] uppercase tracking-widest block font-sans">
+                        ESTIMASI ANGSURAN BULANAN
                       </span>
+                      <div className="flex items-baseline gap-1 bg-white/5 p-3 border-l-2 border-editorial-gold mt-1">
+                        <span className="font-serif text-editorial-gold text-3xl font-extrabold italic">
+                          Rp {Math.round(monthlyInstallment).toLocaleString("id-ID")}
+                        </span>
+                        <span className="text-[10px] font-sans not-italic text-editorial-border/70 font-light"> /bulan</span>
+                      </div>
                     </div>
 
                   </div>

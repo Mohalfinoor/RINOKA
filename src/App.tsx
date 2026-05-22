@@ -195,7 +195,7 @@ export default function App() {
       </header>
 
       {/* 2. MAJESTIC HERO BANNER WITH REAL RENDER */}
-      <section className="relative bg-[#1A2E35] border-b border-[#E0DBCF] overflow-hidden">
+      <section className="relative bg-[#0E1A1E] border-b border-editorial-border overflow-hidden">
         {/* Absolute Background Generated Architectural Reference */}
         <div className="absolute inset-0">
           <img
@@ -204,60 +204,62 @@ export default function App() {
             className="w-full h-full object-cover opacity-35 filter brightness-95 scale-105"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#1A2E35]/65 to-black/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-editorial-accent/65 to-black/85"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex flex-col justify-center min-h-[640px]">
           <div className="max-w-3xl space-y-7">
             
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-none text-[#D4AF37]">
-              <span className="w-1.5 h-1.5 bg-[#D4AF37] rounded-none animate-pulse"></span>
-              <span className="text-[9px] font-bold tracking-[0.2em] uppercase">
-                Promo Eksklusif: Free AC Setiap Kamar Tidur
+            <div className="inline-flex items-center gap-2 bg-[#1B4541]/80 border border-editorial-gold/30 px-4 py-2 rounded-none text-editorial-gold glow-gold shimmer-premium">
+              <span className="w-1.5 h-1.5 bg-editorial-gold rounded-none animate-pulse"></span>
+              <span className="text-[9px] font-bold tracking-[0.2em] uppercase font-sans">
+                PROMO EKSKLUSIF: <span className="text-white font-extrabold underline">FREE AC DI SETIAP KAMAR TIDUR</span> & SUBSIDI SUBS KPR
               </span>
             </div>
 
             <h1 className="text-4xl md:text-7xl font-serif text-white leading-tight tracking-tight">
               RINOKA <br />
-              <span className="text-[#D4AF37] not-italic font-serif block mt-2 text-3xl md:text-4xl">Summarecon Mutiara Makassar</span>
+              <span className="text-editorial-gold not-italic font-serif block mt-2 text-3xl md:text-4xl font-light">
+                Summarecon Mutiara Makassar
+              </span>
             </h1>
 
-            <p className="text-[#E0DBCF]/80 text-sm md:text-base max-w-2xl font-serif italic leading-relaxed font-light">
-              Karya masterpieces hunian bergaya <span className="text-white font-medium">Klasik Prancis Modern</span>. Hasil kolaborasi global Joint-Venture di tengah jantung Summarecon Mutiara Makassar yang asri, berteknologi presisi tinggi, dan ramah lingkungan.
+            <p className="text-editorial-bg/85 text-sm md:text-base max-w-2xl font-serif italic leading-relaxed font-light">
+              Karya masterpieces hunian bergaya <span className="text-white font-medium underline decoration-editorial-gold/60">Klasik Prancis Modern</span>. Hasil kolaborasi global Joint-Venture di tengah jantung Summarecon Mutiara Makassar yang asri, berteknologi presisi tinggi, dan ramah lingkungan.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
                 href="#booking-simulator"
-                className="bg-[#D4AF37] hover:bg-[#C09F30] text-[#1A2E35] py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center border border-[#E0DBCF]"
+                className="bg-editorial-gold hover:bg-editorial-gold-hover text-editorial-accent py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center border border-editorial-border transition-all duration-300 glow-gold"
               >
                 Simulasi Booking Unit
               </a>
               <a
                 href="#3d-viewer"
-                className="bg-transparent hover:bg-white/5 text-white border border-white/20 py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center"
+                className="bg-transparent hover:bg-white/5 text-white border border-white/20 py-4 px-8 rounded-none font-bold uppercase tracking-widest text-[10px] text-center transition-all duration-300"
               >
                 Lihat Model Rumah 3D
               </a>
             </div>
 
-            {/* Quick specifications icons summary */}
+            {/* Quick specifications icons summary using high-contrast highlight markers */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-12 border-t border-white/10 max-w-2xl">
-              <div>
-                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Harga Mulai</span>
-                <span className="text-white font-serif italic text-base">Rp 1.2 Milyar*</span>
+              <div className="p-3 bg-white/5 border-l-2 border-editorial-gold">
+                <span className="text-[9px] uppercase font-bold text-editorial-gold tracking-widest block mb-1">Harga Mulai</span>
+                <span className="text-white font-serif italic text-base font-semibold">Rp 1.2 Milyar*</span>
               </div>
-              <div>
-                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Tipe Tersedia</span>
-                <span className="text-white font-serif italic text-base">Lyon & Paris</span>
+              <div className="p-3 bg-white/5 border-l-2 border-editorial-gold">
+                <span className="text-[9px] uppercase font-bold text-editorial-gold tracking-widest block mb-1">Tipe Tersedia</span>
+                <span className="text-white font-serif italic text-base font-semibold">Lyon & Paris</span>
               </div>
-              <div>
-                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Kemitraan JV</span>
-                <span className="text-white font-serif italic text-base">Sumitomo Forestry</span>
+              <div className="p-3 bg-white/5 border-l-2 border-editorial-gold animate-pulse">
+                <span className="text-[9px] uppercase font-bold text-editorial-gold tracking-widest block mb-1">Kemitraan JV</span>
+                <span className="text-white font-serif italic text-base font-semibold">Sumitomo Forestry</span>
               </div>
-              <div>
-                <span className="text-[9px] uppercase font-bold text-[#D4AF37] tracking-widest block mb-1">Arsitektur</span>
-                <span className="text-white font-serif italic text-base">Prancis Modern</span>
+              <div className="p-3 bg-white/5 border-l-2 border-editorial-gold">
+                <span className="text-[9px] uppercase font-bold text-editorial-gold tracking-widest block mb-1">Arsitektur</span>
+                <span className="text-white font-serif italic text-base font-semibold">Prancis Klasik</span>
               </div>
             </div>
 
@@ -266,55 +268,55 @@ export default function App() {
       </section>
 
       {/* 3. EXQUISITE JOINT VENTURE COOPERATION STORY */}
-      <section id="jv-story" className="py-24 bg-[#F7F5F0]">
+      <section id="jv-story" className="py-24 bg-editorial-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* LEFT: Text storytelling Block */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-[#8A8471] text-[10px] uppercase tracking-[0.25em] font-bold block mb-1">
+              <span className="text-editorial-secondary text-[10px] uppercase tracking-[0.25em] font-bold block mb-1 font-sans">
                 Kemitraan Kelas Dunia
               </span>
-              <h2 className="text-3xl md:text-5xl font-serif italic text-[#1A2E35] leading-tight tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-serif italic text-editorial-accent leading-tight tracking-tight">
                 Harmoni Sempurna Struktur Jepang & Desain Eropa Klasik
               </h2>
-              <div className="w-20 h-[1px] bg-[#8A8471]"></div>
+              <div className="w-20 h-[1px] bg-editorial-secondary"></div>
               
               <p className="text-editorial-secondary text-sm leading-relaxed font-serif italic">
-                Ya, benar sekali! <strong>RINOKA</strong> adalah klaster eksklusif hasil kemitraan strategis (Joint Venture) resmi antara developer legendaris nasional <strong>Summarecon Makassar</strong> dengan raksasa teknologi perkayuan dan konstruksi global asal Jepang, <strong>Sumitomo Forestry Indonesia</strong> (anak perusahaan dari Sumitomo Forestry Group Jepang yang didirikan sejak tahun 1691).
+                Ya, benar sekali! <strong className="editorial-highlight text-editorial-accent">RINOKA</strong> adalah klaster eksklusif hasil <span className="editorial-highlight text-editorial-accent">kemitraan strategis (Joint Venture) resmi</span> antara developer legendaris nasional <strong className="text-editorial-accent font-semibold">Summarecon Makassar</strong> dengan raksasa teknologi perkayuan dan sirkulasi ramah lingkungan global asal Jepang, <strong className="editorial-highlight text-editorial-accent">Sumitomo Forestry Indonesia</strong> (anak perusahaan resmi dari <strong className="font-semibold text-editorial-accent">Sumitomo Forestry Group Jepang</strong> yang didirikan sejak tahun <span className="font-mono text-editorial-accent font-bold">1691</span>).
               </p>
               <p className="text-editorial-secondary text-sm leading-relaxed font-serif italic">
-                Kolaborasi ini menyatukan kehandalan prasarana kota mandiri Summarecon dengan standar keteknikan ketat khas Jepang. Menggunakan material tersertifikasi berkelanjutan yang ramah lingkungan dengan sistem presisi wooden engineering yang tahan gempa, memberikan kenyamanan microclimate alami yang sejuk sepanjang hari.
+                Kolaborasi ini menyatukan kehandalan prasarana kota mandiri Summarecon dengan <span className="editorial-highlight text-editorial-accent">teknologi rancangan kayu (wooden engineering) sangat presisi khas Jepang</span>. Menggunakan material bersertifikat hijau terbarukan, sistem seismik tahan gempa premium, serta desain tata udara yang sejuk nan higienis sepanjang hari.
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none premium-highlight-box transition-all duration-300 hover:shadow-xs">
                   <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
                     <Sparkles className="w-5 h-5 text-editorial-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Fasad Arsitektur Prancis</h4>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs font-sans">Fasad Arsitektur Prancis</h4>
                     <p className="text-xs text-editorial-secondary font-serif italic mt-1">Sentuhan kemewahan pilar anggun, atap slate abu-abu tinggi, dan ornamen French window yang estetik.</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none premium-highlight-box transition-all duration-300 hover:shadow-xs">
                   <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
                     <Leaf className="w-5 h-5 text-editorial-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Teknologi Struktur Jepang</h4>
-                    <p className="text-xs text-editorial-secondary font-serif italic mt-1">Mengandalkan structural integrity Sumitomo Forestry Group Jepang untuk hunian kokoh, tahan gempa, dan presisi tinggi.</p>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs font-sans">Teknologi Struktur Jepang</h4>
+                    <p className="text-xs text-editorial-secondary font-serif italic mt-1">Mengandalkan <strong className="text-editorial-accent font-semibold">structural integrity Sumitomo Forestry Group Jepang</strong> untuk sirkulasi rumah hemat energi, anti pecah, dan durabilitas tinggi.</p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none">
+                <div className="flex gap-4 p-5 bg-white border border-editorial-border rounded-none premium-highlight-box transition-all duration-300 hover:shadow-xs">
                   <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center shrink-0">
                     <ShieldCheck className="w-5 h-5 text-editorial-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs">Double Gate System</h4>
+                    <h4 className="font-bold text-editorial-accent uppercase tracking-wider text-xs font-sans">Double Gate System</h4>
                     <p className="text-xs text-editorial-secondary font-serif italic mt-1">Sistem keamanan ganda elektrik terintegrasi untuk menjamin rasa aman dan privasi mutlak bagi keluarga Anda.</p>
                   </div>
                 </div>
@@ -345,7 +347,7 @@ export default function App() {
       </section>
 
       {/* 4. PREMIUM AMENITIES RESORT BENTO GRID */}
-      <section id="amenities" className="py-24 bg-[#1A2E35] text-white relative overflow-hidden border-y border-[#E0DBCF]">
+      <section id="amenities" className="py-24 bg-editorial-accent text-white relative overflow-hidden border-y border-editorial-border">
         
         {/* Background Visual render of tranquil Zen pool area */}
         <div className="absolute inset-0 opacity-15">
@@ -361,13 +363,13 @@ export default function App() {
           
           {/* Header */}
           <div className="max-w-3xl mb-16">
-            <span className="text-[#D4AF37] text-[10px] uppercase tracking-[0.25em] font-bold block mb-3">
+            <span className="text-editorial-gold text-[10px] uppercase tracking-[0.25em] font-bold block mb-3 font-sans">
               PREMIUM LUXURY FACILITIES
             </span>
             <h2 className="text-3xl md:text-5xl font-serif italic text-white mb-4">
               Fasilitas Eksklusif Penunjang Gaya Hidup Terbaik
             </h2>
-            <p className="text-[#E0DBCF]/80 text-sm leading-relaxed max-w-2xl font-serif italic">
+            <p className="text-[#FAFAF5]/80 text-sm leading-relaxed max-w-2xl font-serif italic">
               Summarecon Mutiara Makassar menghadirkan ekosistem kawasan hijau. Dirancang khusus untuk memanjakan istirahat akhir pekan Anda bersama keluarga tanpa perlu keluar dari kawasan klaster.
             </p>
           </div>
@@ -377,15 +379,15 @@ export default function App() {
             {AMENITIES_DATA.map((amenity, i) => (
               <div
                 key={i}
-                className="bg-white p-7 rounded-none border border-[#E0DBCF] hover:border-[#D4AF37] transition-all duration-500 group"
+                className="bg-white p-7 rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-500 group"
               >
-                <div className="w-10 h-10 rounded-none bg-[#F7F5F0] border border-[#E0DBCF] flex items-center justify-center text-[#1A2E35] mb-5 group-hover:bg-[#1A2E35] group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-none bg-editorial-bg border border-editorial-border flex items-center justify-center text-editorial-accent mb-5 group-hover:bg-editorial-accent group-hover:text-white transition-all">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
-                <h4 className="font-serif italic text-[#1A2E35] text-base mb-2 group-hover:text-[#D4AF37] transition-colors">
+                <h4 className="font-serif italic text-editorial-accent text-base mb-2 group-hover:text-editorial-gold transition-colors font-semibold">
                   {amenity.title}
                 </h4>
-                <p className="text-[#5A5440] text-xs leading-relaxed font-serif italic">
+                <p className="text-editorial-secondary text-xs leading-relaxed font-serif italic">
                   {amenity.description}
                 </p>
               </div>
@@ -393,21 +395,23 @@ export default function App() {
           </div>
 
           {/* Big contextual box highlighting Sumitomo garden features */}
-          <div className="mt-12 bg-[#0E1A1E] p-8 md:p-10 rounded-none border border-[#E0DBCF] flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-12 bg-[#0E1A1E] p-8 md:p-10 rounded-none border border-editorial-border flex flex-col md:flex-row items-center justify-between gap-6 glow-gold">
             <div className="space-y-2">
-              <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-[9px] font-bold text-[#D4AF37] uppercase tracking-[0.2em] block w-fit">
+              <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-none text-[9px] font-bold text-editorial-gold uppercase tracking-[0.2em] block w-fit font-sans">
                 Sumitomo Ecology Concept
               </span>
-              <h3 className="text-lg md:text-2xl font-serif italic text-white">Eco Green Zen Yard Kolaborasi Jepang</h3>
-              <p className="text-[#E0DBCF]/75 text-xs max-w-2xl leading-relaxed italic font-serif">
+              <h3 className="text-lg md:text-2xl font-serif italic text-white">
+                Eco Green Zen Yard Kolaborasi Jepang <span className="text-editorial-gold">★</span>
+              </h3>
+              <p className="text-[#FAFAF5]/75 text-xs max-w-2xl leading-relaxed italic font-serif">
                 Menghadirkan harmoni alam asri melalui pemilihan rindang pepohonan penyerap karbon tinggi khas Jepang yang dirancang presisi sesuai kondisi iklim pesisir kota Makassar.
               </p>
             </div>
             <a
               href="#3d-viewer"
-              className="bg-[#D4AF37] hover:bg-[#C09F30] px-6 py-4 rounded-none text-xs font-bold uppercase tracking-widest text-[#1A2E35] transition-colors shrink-0 flex items-center gap-2"
+              className="bg-editorial-gold hover:bg-editorial-gold-hover px-6 py-4 rounded-none text-xs font-bold uppercase tracking-widest text-editorial-accent transition-colors shrink-0 flex items-center gap-2 font-sans glow-gold"
             >
-              Uji Tour Kawasan <ArrowRight className="w-4 h-4 text-[#1A2E35]" />
+              Uji Tour Kawasan <ArrowRight className="w-4 h-4 text-editorial-accent" />
             </a>
           </div>
 
@@ -421,73 +425,79 @@ export default function App() {
       <BookingSimulator />
 
       {/* 7. SUMMARECON MUTIARA AREA CONTEXT */}
-      <section className="py-24 bg-[#F7F5F0] border-t border-[#E0DBCF]">
+      <section className="py-24 bg-editorial-bg border-t border-editorial-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
             {/* Left side parameters list */}
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-[#8A8471] text-[10px] uppercase tracking-[0.2em] font-bold block mb-1">
+              <span className="text-editorial-secondary text-[10px] uppercase tracking-[0.2em] font-bold block mb-1 font-sans">
                 Lokasi & Konektivitas
               </span>
-              <h2 className="text-3xl md:text-5xl font-serif italic text-[#1A2E35] mb-4">
+              <h2 className="text-3xl md:text-5xl font-serif italic text-editorial-accent mb-4">
                 Pusat Pertumbuhan Baru di Makassar Timur
               </h2>
-              <p className="text-[#5A5440] font-serif italic text-sm">
+              <p className="text-editorial-secondary font-serif italic text-sm">
                 Berlokasi di <strong>Summarecon Mutiara Makassar</strong>, kawasan kota mandiri masa depan seluas ratusan hektar di koridor pertumbuhan Makassar Timur yang terus berkembang pesat.
               </p>
 
               <div className="space-y-3 font-sans text-xs text-[#2A3331]">
-                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
-                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#837E70]" /> SD Islam Al Azhar
+                <div className="flex justify-between items-center p-4 bg-white rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-300">
+                  <span className="font-serif italic text-editorial-secondary flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-editorial-secondary" /> SD Islam Al Azhar
                   </span>
-                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                  <span className="font-bold text-editorial-accent text-right text-[11px] bg-editorial-gold/15 px-2 py-1 border border-editorial-gold font-mono">
+                    <span className="editorial-highlight">Selangkah (Tak sampai semenit)</span>
+                  </span>
                 </div>
 
-                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
-                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#837E70]" /> Pasar Mandiri
+                <div className="flex justify-between items-center p-4 bg-white rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-300">
+                  <span className="font-serif italic text-editorial-secondary flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-editorial-secondary" /> Pasar Mandiri
                   </span>
-                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                  <span className="font-bold text-editorial-accent text-right text-[11px] bg-editorial-gold/15 px-2 py-1 border border-editorial-gold font-mono">
+                    <span className="editorial-highlight">Selangkah (Tak sampai semenit)</span>
+                  </span>
                 </div>
 
-                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
-                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#837E70]" /> Upcoming Summarecon Mall Makassar
+                <div className="flex justify-between items-center p-4 bg-white rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-300">
+                  <span className="font-serif italic text-editorial-secondary flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-editorial-secondary" /> Upcoming Summarecon Mall Makassar
                   </span>
-                  <span className="font-bold text-[#1B4541] text-right text-[11px] bg-[#FAFAF5] px-2 py-1 border border-[#E4DFD5]">Selangkah (Tak sampai semenit)</span>
+                  <span className="font-bold text-editorial-accent text-right text-[11px] bg-editorial-gold/25 px-2 py-1 border border-editorial-gold font-mono glow-gold">
+                    <span className="editorial-highlight font-semibold">Selangkah (Pasti Berkembang!)</span>
+                  </span>
                 </div>
 
-                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
-                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#837E70]" /> Akses Gerbang Tol Ir. Sutami
+                <div className="flex justify-between items-center p-4 bg-white rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-300">
+                  <span className="font-serif italic text-editorial-secondary flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-editorial-secondary" /> Akses Gerbang Tol Ir. Sutami
                   </span>
-                  <span className="font-bold text-[#1B4541] text-right font-mono">Hanya 5 Menit (3 km)</span>
+                  <span className="font-bold text-editorial-accent text-right font-mono text-[11px]">Hanya 5 Menit (3 km)</span>
                 </div>
 
-                <div className="flex justify-between p-4 bg-white rounded-none border border-[#E4DFD5] shadow-xs">
-                  <span className="font-serif italic text-[#837E70] flex items-center gap-1.5">
-                    <MapPin className="w-4 h-4 text-[#837E70]" /> Bandara Sultan Hasanuddin
+                <div className="flex justify-between items-center p-4 bg-white rounded-none border border-editorial-border hover:border-editorial-gold transition-all duration-300">
+                  <span className="font-serif italic text-editorial-secondary flex items-center gap-1.5">
+                    <MapPin className="w-4 h-4 text-editorial-secondary" /> Bandara Sultan Hasanuddin
                   </span>
-                  <span className="font-bold text-[#1B4541] text-right font-mono">Hanya 10 Menit</span>
+                  <span className="font-bold text-editorial-accent text-right font-mono text-[11px]">Hanya 10 Menit</span>
                 </div>
               </div>
 
               {/* Instagram link preview request banner */}
-              <div className="bg-white p-6 rounded-none border border-[#E0DBCF] space-y-3">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#1A2E35] flex items-center gap-2">
-                  <Instagram className="w-4 h-4 text-[#8A8471]" /> Ikuti Akun Instagram Resmi Kami
+              <div className="bg-white p-6 rounded-none border border-editorial-border space-y-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-editorial-accent flex items-center gap-2 font-sans">
+                  <Instagram className="w-4 h-4 text-editorial-secondary" /> Ikuti Akun Instagram Resmi Kami
                 </p>
-                <p className="text-xs text-[#5A5440] font-serif italic leading-relaxed">
+                <p className="text-xs text-editorial-secondary font-serif italic leading-relaxed">
                   Dapatkan info diskon peluncuran perdana reguler, vlog show unit, perkembangan aspal jalan, dan dokumentasi terkini langsung dari lapangan Makassar.
                 </p>
                 <a
                   href="https://www.instagram.com/rinokamakassar?igsh=NmIwM3Vqa2dnbXUy&utm_source=qr"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#1A2E35] hover:bg-[#2D2D2D] text-white font-bold text-[10px] uppercase tracking-widest py-3 px-5 rounded-none border border-[#E0DBCF] transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 bg-editorial-accent hover:bg-editorial-text text-white font-bold text-[10px] uppercase tracking-widest py-3 px-5 rounded-none border border-editorial-border transition-all cursor-pointer font-sans"
                 >
                   Buka Instagram @rinokamakassar
                 </a>
@@ -495,35 +505,35 @@ export default function App() {
             </div>
 
             {/* Right side illustrative Maps/Photos block */}
-            <div className="lg:col-span-7 rounded-none overflow-hidden border border-[#E0DBCF] shadow-md bg-white p-5 space-y-4">
+            <div className="lg:col-span-7 rounded-none overflow-hidden border border-editorial-border shadow-md bg-white p-5 space-y-4">
               <div className="h-64 bg-gray-200 rounded-none relative overflow-hidden">
                 {/* Visual generated map mockup */}
                 <img
                   src="/src/assets/images/rinoka_amenities_1779464276424.png"
                   alt="Summarecon Mutiara Makassar map context"
-                  className="w-full h-full object-cover grayscale opacity-80 border border-[#E0DBCF]"
+                  className="w-full h-full object-cover grayscale opacity-80 border border-editorial-border"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
                   <div className="flex justify-between items-center">
                     <div>
-                      <span className="text-[9px] uppercase font-bold tracking-widest text-[#D4AF37] block">MAP DIRECTION</span>
+                      <span className="text-[9px] uppercase font-bold tracking-widest text-editorial-gold block font-sans">MAP DIRECTION</span>
                       <p className="text-xs font-serif italic">Summarecon Mutiara Makassar Entrance</p>
                     </div>
-                    <span className="px-3 py-1.5 bg-[#1A2E35] rounded-none border border-white/10 text-[9px] uppercase tracking-wider font-bold">
+                    <span className="px-3 py-1.5 bg-editorial-accent rounded-none border border-white/10 text-[9px] uppercase tracking-wider font-bold font-sans">
                       Buka Peta Asli
                     </span>
                   </div>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4 text-center">
-                <div className="p-4 bg-[#F7F5F0] border border-[#E0DBCF] rounded-none">
-                  <span className="text-lg font-serif italic font-bold text-[#1A2E35] block">Near Tol</span>
-                  <p className="text-[10px] uppercase font-bold tracking-wider text-[#8A8471] mt-1">Akses langsung lingkar luar</p>
+                <div className="p-4 bg-editorial-bg border border-editorial-border rounded-none">
+                  <span className="text-lg font-serif italic font-bold text-editorial-accent block">Near Tol</span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-editorial-secondary mt-1 font-sans">Akses langsung lingkar luar</p>
                 </div>
-                <div className="p-4 bg-[#F7F5F0] border border-[#E0DBCF] rounded-none">
-                  <span className="text-lg font-serif italic font-bold text-[#1A2E35] block">High Growth</span>
-                  <p className="text-[10px] uppercase font-bold tracking-wider text-[#8A8471] mt-1">Nilai investasi naik up to 12% p.a</p>
+                <div className="p-4 bg-editorial-bg border border-editorial-border rounded-none">
+                  <span className="text-lg font-serif italic font-bold text-editorial-accent block"><span className="editorial-highlight">High Growth</span></span>
+                  <p className="text-[10px] uppercase font-bold tracking-wider text-editorial-secondary mt-1 font-sans">Nilai investasi naik up to 12% p.a</p>
                 </div>
               </div>
             </div>
