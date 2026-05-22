@@ -22,6 +22,7 @@ import {
   Maximize
 } from "lucide-react";
 import Interactive3DViewer from "./components/Interactive3DViewer";
+import NeighborhoodSitePlan from "./components/NeighborhoodSitePlan";
 import BookingSimulator from "./components/BookingSimulator";
 import AIAssistant from "./components/AIAssistant";
 import { RinokaLogoIcon, RinokaLogoBrand } from "./components/RinokaLogo";
@@ -97,6 +98,9 @@ export default function App() {
               <a href="#3d-viewer" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
                 Tur Unit 3D
               </a>
+              <a href="#cluster-map" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold text-editorial-gold">
+                Pilih Kavling
+              </a>
               <a href="#booking-simulator" className="text-xs uppercase tracking-widest text-[#8A8471] hover:text-[#1A2E35] transition-colors font-bold">
                 Kalkulator Sim
               </a>
@@ -170,6 +174,13 @@ export default function App() {
               className="block py-2 text-xs uppercase tracking-wider font-bold text-[#8A8471]"
             >
               Tour Unit 3D
+            </a>
+            <a
+              href="#cluster-map"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-xs uppercase tracking-wider font-bold text-editorial-gold"
+            >
+              Pilih Kavling (Interaktif)
             </a>
             <a
               href="#booking-simulator"
@@ -425,6 +436,9 @@ export default function App() {
 
       {/* 5. INTERACTIVE 3D TOUR SECION */}
       <Interactive3DViewer />
+
+      {/* 5.5 INTERACTIVE SITE PLAN / LOT MAP SECTION */}
+      <NeighborhoodSitePlan />
 
       {/* 6. BOOKING SIMULATOR / KPR CALCULATOR SECTION */}
       <BookingSimulator />
