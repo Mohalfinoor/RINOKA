@@ -27,6 +27,11 @@ import AIAssistant from "./components/AIAssistant";
 import { RinokaLogoIcon, RinokaLogoBrand } from "./components/RinokaLogo";
 import { AMENITIES_DATA, RINOKA_UNITS } from "./data";
 
+// Import local image assets for secure Vite compilation and deployment routing
+import rinokaHeroImg from "./assets/images/rinoka_hero_new_1779473426890.png";
+import rinokaInteriorImg from "./assets/images/rinoka_interior_1779464256215.png";
+import rinokaAmenitiesImg from "./assets/images/rinoka_amenities_1779464276424.png";
+
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [faqOpenIndex, setFaqOpenIndex] = useState<number | null>(null);
@@ -199,7 +204,7 @@ export default function App() {
         {/* Absolute Background Generated Architectural Reference */}
         <div className="absolute inset-0">
           <img
-            src="/src/assets/images/rinoka_hero_new_1779473426890.png"
+            src={rinokaHeroImg}
             alt="RINOKA Summarecon Mutiara Makassar Hero"
             className="w-full h-full object-cover opacity-35 filter brightness-95 scale-105"
             referrerPolicy="no-referrer"
@@ -327,7 +332,7 @@ export default function App() {
             <div className="lg:col-span-6 grid grid-cols-12 gap-4">
               <div className="col-span-8 rounded-none overflow-hidden border border-editorial-border aspect-[4/3] relative">
                 <img
-                  src="/src/assets/images/rinoka_interior_1779464256215.png"
+                  src={rinokaInteriorImg}
                   alt="Rinoka Interior Showunit"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
@@ -352,7 +357,7 @@ export default function App() {
         {/* Background Visual render of tranquil Zen pool area */}
         <div className="absolute inset-0 opacity-15">
           <img
-            src="/src/assets/images/rinoka_amenities_1779464276424.png"
+            src={rinokaAmenitiesImg}
             alt="Zen Amenities Background"
             className="w-full h-full object-cover scale-105"
             referrerPolicy="no-referrer"
@@ -509,7 +514,7 @@ export default function App() {
               <div className="h-64 bg-gray-200 rounded-none relative overflow-hidden">
                 {/* Visual generated map mockup */}
                 <img
-                  src="/src/assets/images/rinoka_amenities_1779464276424.png"
+                  src={rinokaAmenitiesImg}
                   alt="Summarecon Mutiara Makassar map context"
                   className="w-full h-full object-cover grayscale opacity-80 border border-editorial-border"
                   referrerPolicy="no-referrer"
@@ -590,7 +595,7 @@ export default function App() {
       <section className="bg-[#1A2E35] text-white py-24 text-center select-none relative overflow-hidden border-t border-[#E0DBCF]">
         <div className="absolute inset-0 opacity-10">
           <img
-            src="/src/assets/images/rinoka_hero_new_1779473426890.png"
+            src={rinokaHeroImg}
             alt="Interior Footer Decor Outline"
             className="w-full h-full object-cover scale-110"
             referrerPolicy="no-referrer"

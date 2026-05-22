@@ -2,6 +2,11 @@ import { useState } from "react";
 import { RINOKA_UNITS, UnitDetail, RoomDetail } from "../data";
 import { Layout, Home, Compass, Maximize2, Layers, CheckCircle2 } from "lucide-react";
 
+import rinokaHeroImg from "../assets/images/rinoka_hero_new_1779473426890.png";
+import rinokaInteriorImg from "../assets/images/rinoka_interior_1779464256215.png";
+
+type RoomCentroid = { x: number; y: number };
+
 export default function Interactive3DViewer() {
   const [selectedUnitId, setSelectedUnitId] = useState<string>("lyon");
   const [activeFloor, setActiveFloor] = useState<number>(1);
@@ -18,9 +23,9 @@ export default function Interactive3DViewer() {
   // Map units to direct visual references generated for this project
   const getUnitImage = (unitId: string) => {
     if (unitId === "lyon") {
-      return "/src/assets/images/rinoka_hero_new_1779473426890.png";
+      return rinokaHeroImg;
     }
-    return "/src/assets/images/rinoka_interior_1779464256215.png";
+    return rinokaInteriorImg;
   };
 
   return (
