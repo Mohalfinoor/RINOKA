@@ -1,0 +1,13 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22" fill="#1B4541" />
+  <g transform="translate(0, 10)">
+    {/* Top Petal */}
+    <path d="M50 12 C44 21 44 33 50 39 C56 33 56 21 50 12 Z" stroke="#D5B277" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    {/* Ribbon */}
+    <path d="M50 39 C42 36 42 42 50 42 C58 42 58 36 50 39 Z" stroke="#D5B277" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    {/* Left scroll */}
+    <path d="M50 42 C44 50 35 63 22 63 C11 63 8 50 18 42 C27 35 37 42 36 50 C35 55 30 58 26 55 C24 53 24 49 27 48" stroke="#D5B277" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    {/* Right scroll */}
+    <path d="M50 42 C56 50 65 63 78 63 C89 63 92 50 82 42 C73 35 63 42 64 50 C65 55 70 58 74 55 C76 53 76 49 73 48" stroke="#D5B277" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
